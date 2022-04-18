@@ -1,0 +1,37 @@
+version: '3.7'
+
+services:
+  php:
+    container_name: csv_parser_backend_php
+    build:
+      context: ./docker/local/php
+    environment:
+      XDEBUG_CONFIG: "remote_host=host.docker.internal remote_enable=1 "
+    volumes:
+      - './:/var/www/app'
+
+  nginx:
+    container_name: csv_parser_backend_nginx
+    build:
+      dockerfile: docker/local/nginx/Dockerfile
+      context: .
+    ports:
+      - 8085:80
+    depends_on:
+      - php
+    volumes:
+      - './:/var/www/app'
+
+  db:
+    container_name: csv_parser_backend_db
+    build:
+      context: ./docker/local/db
+    environment:
+      MYSQL_ROOT_PASSWORD: csv_parser
+      MYSQL_DATABASE: csv_parser
+      MYSQL_USER: csv_parser
+      MYSQL_PASSWORD: csv_parser
+    ports:
+      - 3308:3306
+    volumes:
+      - ./data/db-data-dev:/var/lib/mysql
