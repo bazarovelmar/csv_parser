@@ -9,6 +9,7 @@ class InsertArrayInDbService
 {
     public static function insertInDb(array $rowElements)
     {
+        array_shift($rowElements[0]);
         foreach ($rowElements[0] as $rowItem) {
             $resultItems = explode(';', $rowItem);
             DB::table('test_file_csvs')->insert([
