@@ -3,18 +3,19 @@ $(document).ready(function () {
         e.preventDefault();
         var formData = new FormData(this);
         $.ajax({
-            type:'POST', // Тип запроса
-            url: '/form/add_file', // Скрипт обработчика
-            data: formData, // Данные которые мы передаем
-            cache:false, // В запросах POST отключено по умолчанию, но перестрахуемся
-            contentType: false, // Тип кодирования данных мы задали в форме, это отключим
-            processData: false, // Отключаем, так как передаем файл
+            type:'POST',
+            url: '/form/add_file',
+            data: formData,
+            cache:false,
+            contentType: false,
+            processData: false,
             success:function(data){
                 $('#result_inputs').css('display', 'block');
                 $('#message').css('display', 'block');
-                $("#parsing").attr("action",'/');
+                $('#messageError').css('display', 'none');
             },
-            error:function(data){
+            error:function(data) {
+                $('#messageError').css('display', 'block');
             }
         });
     }));

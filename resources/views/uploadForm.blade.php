@@ -21,15 +21,13 @@
                     <input id="file" type="file" name="file"/>
                     <input type="submit" class="blog__form_btn" id="submit"></input>
                     <p id="message" style="display: none; text-align: center">Файл успешно загружен</p>
+                    <p id="messageError" style="display: none; text-align: center; color: darkred">Вы пытаетесь загрузить не тот файл</p>
                 </form>
                 <div id="result_inputs" style="display: none">
                     <p  style="text-align: center; color: black">Выберите действие</p>
-                    <form action="/table" id="parsing">
-                        <input type="submit" value="Парсинг таблицы">
-                    </form>
-                    <form action="/table" id="parsing">
-                        <input type="submit" value="Преобразовать и скачать валидный csv">
-                    </form>
+                    <a href="/table">Парсинг таблицы (открыть таблицу)</a>
+                    <a href="/">Скачать валидный csv (функционал еще не готов)</a>
+
                 </div>
 
 

@@ -36,5 +36,6 @@ class InsertArrayInDbService
                 'description' => $resultItems[13] ?? null,
             ]);
         }
+        return $rowElements[0];
     }
 }

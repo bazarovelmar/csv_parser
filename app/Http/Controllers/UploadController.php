@@ -27,7 +27,7 @@ class UploadController extends Controller
             InsertArrayInDbService::insertInDb($rowElements);
 
             return response()->json([
-                'success'=>'true'
+                'success'=>'true',
             ]);
 
         }
