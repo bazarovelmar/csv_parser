@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/form', function () {
     return view('uploadForm');
 });
-
+Route::get('/table', [\App\Http\Controllers\ViewTableController::class, "table"]);
 Route::post('/form/add_file', [App\Http\Controllers\UploadController::class, 'upload']);
 
 

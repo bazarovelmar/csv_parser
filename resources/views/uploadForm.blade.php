@@ -24,10 +24,12 @@
                 </form>
                 <div id="result_inputs" style="display: none">
                     <p  style="text-align: center; color: black">Выберите действие</p>
-                    <form action="/file_table" id="parsing">
+                    <form action="/table" id="parsing">
                         <input type="submit" value="Парсинг таблицы">
                     </form>
-                    <input type="submit" value="Преобразовать и скачать валидный csv">
+                    <form action="/table" id="parsing">
+                        <input type="submit" value="Преобразовать и скачать валидный csv">
+                    </form>
                 </div>
 
 
