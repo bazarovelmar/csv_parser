@@ -13,5 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [App\Http\Controllers\CsvReaderController::class, 'csvReader']);
+//Route::get('/', [App\Http\Controllers\CsvReaderController::class, 'csvReader']);
+Route::get('/form', function () {
+    return view('uploadForm');
+});
+
+Route::post('/form/add_file', [App\Http\Controllers\UploadController::class, 'upload']);
+
 

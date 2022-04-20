@@ -7,9 +7,16 @@ use Illuminate\Support\Facades\DB;
 
 class InsertArrayInDbService
 {
+    /**
+     * @param array $rowElements
+     * @return void
+     */
     public static function insertInDb(array $rowElements)
     {
+        //Удаляем первую строку из таблицы с названиями столбцов
         array_shift($rowElements[0]);
+
+        //Разбиваем элементы строк по разделителю и превращаем в массив, пробегаясь по элементам и записывая их в бд
         foreach ($rowElements[0] as $rowItem) {
             $resultItems = explode(';', $rowItem);
             DB::table('test_file_csvs')->insert([
